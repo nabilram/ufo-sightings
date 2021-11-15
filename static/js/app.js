@@ -59,19 +59,9 @@ function updateFilters() {
     let filteredData = tableData;
   
     // 9. Loop through all of the filters and keep any data that matches the filter values
-
-    Object.entries(filters).forEach(([filterID, elementVal]) => {
-      filteredData = filteredData.filter(row => row.datetime === ElementVal);
-    }
-    
-    //filteredData.filter((line_item) => {
-      //for(filterID in filters) {
-       //   if(line_item[filterID] !== filters[filterID]) {
-        //    return false;
-         // }
-      //}
-      //return true;
-    //});
+    Object.entries(filters).forEach(([key, value]) => {
+      filteredData = filteredData.filter(row => row[key] === value);
+    });
   
     // 10. Finally, rebuild the table using the filtered data
     buildTable(filteredData);
